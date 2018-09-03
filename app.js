@@ -24,4 +24,31 @@ var blogSchema = new mongoose.Schema({
 
 var Blog = mongoose.model("Blog", blogSchema);
 
-//
+// Blog.create({
+//     title: "First Blog",
+//     image: "https://images.pexels.com/photos/1317844/pexels-photo-1317844.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+//     body: "This is my first blog post test"
+// }, function(err, newBlog){
+//     if(err){
+//         console.log(err);
+//     } else{
+//         console.log("Blog added!");
+//         console.log(newBlog);
+//     }
+// });
+
+// RESTful Routes
+app.get("/", function(req, res){
+    res.render("app");
+});
+
+// INDEX Route
+app.get("/blogs", function(req, res){
+    res.render("index");
+});
+
+
+
+app.listen(process.env.PORT, process.env.IP, function(req, res){
+    console.log("MeBlog server has started...");
+});
