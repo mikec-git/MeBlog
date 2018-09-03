@@ -39,15 +39,20 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 // RESTful Routes
 app.get("/", function(req, res){
-    res.render("app");
+    res.render("index");
 });
 
 // INDEX Route
 app.get("/blogs", function(req, res){
-    res.render("index");
+    res.render("blogs");
 });
 
 
+
+// CONTACT Route
+app.get("/contact", function(req, res) {
+    res.render("contact");
+});
 
 app.listen(process.env.PORT, process.env.IP, function(req, res){
     console.log("MeBlog server has started...");
