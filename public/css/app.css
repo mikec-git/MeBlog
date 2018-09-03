@@ -28,7 +28,7 @@ header .header-brand {
   display: block;
   margin: 0 auto;
   text-align: center;
-  padding: 20px 0 5px; }
+  padding: 40px 0 5px; }
 
 header nav ul {
   list-style: none; }
@@ -51,6 +51,38 @@ header nav ul a:hover {
   color: white;
   transition: all 0.3s ease-in-out; }
 
+@media only screen and (min-width: 800px) {
+  header {
+    display: grid;
+    grid-template-columns: auto 1fr 2fr; }
+
+  header .header-brand {
+    border-right: 3px solid var(--fontLight);
+    line-height: 30px;
+    padding: 0 30px;
+    margin: 20px 0;
+    grid-column: 1 / auto; }
+
+  header nav ul {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    height: 100%;
+    padding-left: 20px; }
+
+  header nav ul li {
+    display: table;
+    height: 100%; }
+
+  header nav ul li a {
+    vertical-align: middle;
+    display: table-cell;
+    padding: 0 10px; }
+
+  .index-boxes {
+    display: flex; }
+
+  footer ul.footer-projects {
+    display: block; } }
 main {
   color: white; }
 
