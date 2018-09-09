@@ -51,7 +51,7 @@ header nav ul a:hover {
   color: white;
   transition: all 0.3s ease-in-out; }
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 900px) {
   header {
     display: grid;
     grid-template-columns: auto 1fr 2fr; }
@@ -65,9 +65,8 @@ header nav ul a:hover {
 
   header nav ul {
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    height: 100%;
-    padding-left: 20px; }
+    grid-template-columns: repeat(5, auto);
+    height: 100%; }
 
   header nav ul li {
     display: table;
@@ -79,10 +78,108 @@ header nav ul a:hover {
     padding: 0 10px; }
 
   .index-boxes {
-    display: flex; }
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center; }
+
+  section div.index-boxlink-square {
+    width: 20%; }
+
+  section div.index-boxlink-rectangle {
+    width: 50%; }
+
+  main.about .about-section {
+    all: unset;
+    color: var(--fontLight);
+    display: grid;
+    grid-template-areas: "photo . photoText photoText" "photo . paragraph paragraph" "photo . paragraph paragraph";
+    grid-template-columns: 1.5fr 0.05fr 1fr 1fr;
+    margin: 0.5rem 3rem 2rem;
+    justify-content: center;
+    align-items: center; }
+
+  section div.about-photo {
+    all: unset;
+    grid-area: photo; }
+    section div.about-photo img {
+      width: 100%;
+      margin: 20px 20px 20px 2px;
+      box-shadow: 0px 2px 4px 2px #111;
+      padding: 0; }
+
+  section div.about-photo-text {
+    all: unset;
+    grid-area: photoText;
+    font-size: 2rem; }
+    section div.about-photo-text h1 {
+      margin: 10px 20px 0; }
+    section div.about-photo-text hr {
+      margin-left: 20px; }
+
+  section div.about-paragraph {
+    all: unset;
+    grid-area: paragraph;
+    padding: 0 20px;
+    font-size: 1.4rem; }
+
+  .contact {
+    padding: 0 20%;
+    margin: 0 auto; }
+    .contact .contact-info {
+      width: 100%; }
+    .contact form {
+      display: grid !important;
+      grid-template-areas: "name    detail" "email   detail" "btn     btn";
+      grid-template-columns: 1fr 2fr;
+      grid-template-rows: 2fr 2fr 1fr;
+      justify-items: center;
+      grid-gap: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+      border-radius: 10px; }
+      .contact form input[type="text"] {
+        grid-area: name;
+        width: 100%; }
+      .contact form input[type="email"] {
+        width: 100%;
+        grid-area: email; }
+      .contact form textarea {
+        width: 100%;
+        grid-area: detail;
+        padding-top: 125px; }
+      .contact form button {
+        grid-area: btn;
+        width: 100%;
+        border-radius: 10px; }
+
+  footer {
+    padding: 20px !important; }
+    footer li {
+      line-height: 45px !important; }
+    footer a {
+      line-height: 25px !important; }
+
+  footer ul, footer div {
+    font-size: 1rem; }
+
+  footer ul.footer-navigation {
+    display: block;
+    width: 25vw; }
 
   footer ul.footer-projects {
-    display: block; } }
+    display: block;
+    width: 30vw;
+    margin: 0 5px; }
+
+  footer div.footer-social {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center; }
+
+  .footer-social a {
+    margin-left: 10%; } }
 main {
   color: white; }
 
@@ -133,6 +230,187 @@ main {
   color: white;
   transition: all 0.2s ease-in-out; }
 
+.blogs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .blogs-container .blogs-header {
+    text-align: center;
+    font-size: 3rem; }
+  .blogs-container .btn.new-blog {
+    color: var(--fontLight);
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 2px solid var(--fontLight);
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 20px auto 10px; }
+  .blogs-container .new-blog:hover {
+    color: white;
+    background: var(--fontLight);
+    transition: all 0.4s ease-in-out; }
+  .blogs-container .blogs-divided {
+    display: block;
+    width: 95%;
+    max-width: 1000px;
+    padding: 10px; }
+  .blogs-container .each-blog {
+    padding: 10px 10px 30px;
+    margin: 10px 10px 20px;
+    border: 2px solid var(--fontLight);
+    border-radius: 5px; }
+    .blogs-container .each-blog h1 {
+      color: var(--fontLight);
+      position: relative;
+      left: 50%;
+      width: 90%;
+      margin: 0 calc(-90% / 2);
+      font-size: 2.5rem; }
+    .blogs-container .each-blog img {
+      position: relative;
+      left: 50%;
+      width: 90%;
+      margin: 0 calc(-90% / 2);
+      margin-top: 10px;
+      border-radius: 5px; }
+    .blogs-container .each-blog p {
+      font-size: 1.5rem;
+      position: relative;
+      left: 50%;
+      width: 90%;
+      margin: 0 calc(-90% / 2); }
+    .blogs-container .each-blog p:nth-of-type(2) {
+      margin-bottom: 20px; }
+    .blogs-container .each-blog p.blog-date {
+      font-weight: 600; }
+    .blogs-container .each-blog .blog-delete {
+      border: none;
+      background: white; }
+    .blogs-container .each-blog a.blog-edit, .blogs-container .each-blog .blog-delete {
+      color: var(--fontLight);
+      font-size: 1.3rem;
+      border: 2px solid var(--fontLight);
+      border-radius: 3px;
+      padding: 7px 14px;
+      margin: 0 10px 0 5%; }
+    .blogs-container .each-blog a.blog-edit:hover, .blogs-container .each-blog .blog-delete:hover, .blogs-container .each-blog .read-more:hover {
+      color: white;
+      background: var(--fontLight);
+      transition: all 0.4s ease-in-out; }
+    .blogs-container .each-blog .blog-buttons {
+      display: flex; }
+    .blogs-container .each-blog .read-more {
+      color: var(--fontLight);
+      font-size: 1.3rem;
+      border: 2px solid var(--fontLight);
+      border-radius: 3px;
+      padding: 7px 14px;
+      margin: 0 10px 0 5%; }
+
+.new-blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .new-blog h1 {
+    text-align: center; }
+  .new-blog form {
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    padding: 15px; }
+  .new-blog form > div {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column; }
+    .new-blog form > div label {
+      margin-top: 15px; }
+    .new-blog form > div input, .new-blog form > div textarea {
+      border: none;
+      padding: 15px 20px;
+      background: #EEE;
+      transition: all 0.5s linear;
+      font-size: 1.3rem;
+      font-family: inherit; }
+  .new-blog .blog-submit {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: 7rem;
+    height: 2.25rem;
+    background: #EEE;
+    border: none;
+    margin-top: 10px; }
+  .new-blog .blog-submit:hover {
+    background: var(--fontLight);
+    color: white;
+    transition: all 0.4s ease-in-out; }
+
+.about .about-section {
+  color: var(--fontLight);
+  display: grid;
+  grid-template-areas: "about-photo-text" "about-photo" "about-paragraph";
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; }
+
+.about-photo {
+  grid-area: about-photo; }
+  .about-photo img {
+    width: 100vw; }
+
+.about-photo-text {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
+  grid-area: about-photo-text; }
+  .about-photo-text hr {
+    margin: 0 10px 20px; }
+
+.about-paragraph {
+  grid-area: about-paragraph;
+  font-size: 1.2rem;
+  margin: 0 5px;
+  padding: 20px; }
+
+.contact {
+  color: var(--fontLight);
+  margin: 20px; }
+
+.contact-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); }
+  .contact-info .contact-header {
+    font-size: 2rem;
+    font-weight: 700; }
+  .contact-info form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 30px;
+    padding: 5px; }
+  .contact-info input, .contact-info textarea {
+    border-radius: 20px;
+    margin: 2px 0;
+    border: none;
+    text-align: center;
+    resize: none;
+    padding: 10px;
+    font-family: inherit;
+    transition: all 0.5s linear; }
+  .contact-info textarea {
+    padding-top: 90px; }
+  .contact-info button {
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 20px; }
+  .contact-info button:hover {
+    background: #2f2f2f;
+    color: white;
+    transition: all 0.3s ease-in-out; }
+
 footer {
   padding: 40px;
   margin-top: 20px;
@@ -142,11 +420,9 @@ footer {
   display: flex;
   justify-content: space-around; }
 
-footer .footer-navigation li:first-child {
+footer .footer-navigation li:first-child,
+footer .footer-projects li:first-child {
   font-weight: 600; }
-
-footer .footer-navigation {
-  flex: 0.4; }
 
 footer li, footer a {
   line-height: 50px;

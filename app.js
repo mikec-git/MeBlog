@@ -39,15 +39,93 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 // RESTful Routes
 app.get("/", function(req, res){
-    res.render("index");
+    res.render("app");
 });
 
 // INDEX Route
 app.get("/blogs", function(req, res){
-    res.render("blogs");
+    Blog.find({}, function(err, blogs){
+        if(err){
+            console.log(err);
+        } else{
+            res.render("index", {blogs: blogs});
+        }
+    });
 });
 
+// NEW BLOG Route
+app.get("/blogs/new", function(req, res) {
+    res.render("newBlog");
+});
 
+// CREATE BLOG Route
+app.post("/blogs", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    
+    Blog.create(req.body.blog, function(err, createdBlog) {
+        if(err){
+            res.render("newBlog");
+        } else{
+            res.redirect("/blogs");
+        }
+    });
+});
+
+// SHOW BLOG Route
+app.get("/blogs/:id", function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs");
+        } else{
+            res.render("showBlog", {blog: foundBlog});
+        }
+    });
+});
+
+// EDIT BLOG Route 
+app.get("/blogs/:id/edit", function(req, res) {
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/blogs");
+        } else{
+            res.render("editBlog", {blog:foundBlog});
+        }
+    });
+});
+
+// UPDATE BLOG Route
+app.put("/blogs/:id", function(req, res){
+    req.body.blog.body = req.sanitize(req.body.blog.body);
+    
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+        if(err){
+            res.redirect("/blogs");
+        } else{
+            res.redirect(/blogs/ + req.params.id);
+        }
+    });
+});
+
+// DELETE BLOG Route
+app.delete("/blogs/:id", function(req, res){
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            res.redirect("/blogs");
+        } else{
+            res.redirect("/blogs");
+        }
+    })
+})
+
+// ABOUT Route
+app.get("/about", function(req, res){
+    res.render("about");
+});
+
+// PORTFOLIO Route
+app.get("/portfolio", function(req, res) {
+    res.render("portfolio");
+});
 
 // CONTACT Route
 app.get("/contact", function(req, res) {

@@ -1,29 +1,23 @@
 <% include ./partials/header %>
 
-
-    <main class="home">
-        <section class="index-banner">
-            <div class="vertical-center">
-                <h1>MeBlog</h1>
-                <p>A creative and collaborative outlet for indivuals to share their ideas</p>
-            </div>
-        </section>
+<div class="blogs-container">
+    <h1 class="blogs-header">My Blogs</h1>
+    <a href="/blogs/new" class="btn new-blog">New Post</a>
     
-        <section class="index-boxes">
-            <div class="index-boxlink-square">
-                <a href="#">Portfolio</a>
+    <div class="blogs-divided">
+        <% blogs.forEach(blog => { %>
+            <div class="each-blog">
+                <a href="/blogs/<%= blog._id %>" class="blog-title"><h1><%= blog.title %></h1></a>
+                <img src="<%= blog.image %>">
+                <p class="blog-date"><%= blog.created.toDateString() %></p>
+                <p><%- blog.body.substring(0,200) %>...</p>
+                <div class="blog-buttons">
+                    <a href="/blogs/<%= blog._id %>" class="btn read-more">Read More</a>
+                </div>
             </div>
-            <div class="index-boxlink-rectangle">
-                <a href="#">Github</a>
-            </div>
-            <div class="index-boxlink-rectangle">
-                <a href="#">About</a>
-            </div>
-            <div class="index-boxlink-square">
-                <a href="#">Contact</a>
-            </div>
-        </section>
-    </main>
-
+        <% }); %>
+    </div>
+    
+</div>
 
 <% include ./partials/footer %>
